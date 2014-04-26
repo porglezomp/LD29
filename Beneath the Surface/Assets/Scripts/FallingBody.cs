@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FallingBody : Body {
+
+	public List<FutureBody> future;
 
 	// Use this for initialization
 	new void Start () {
 		base.Start();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		position += velocity * Time.fixedDeltaTime;
 	}
 
 	void Update () {

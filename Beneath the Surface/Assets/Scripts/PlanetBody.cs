@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlanetBody : Body {
 
 	public Vector2 initialVel;
+	public List<FutureBody> future;
 
 	// Use this for initialization
 	new void Start () {
@@ -28,4 +29,6 @@ public class PlanetBody : Body {
 			dyn.velocity += vecDelta;
 		}
 	}
+
+//	public void Bod
 }

@@ -2,8 +2,9 @@ TODO:
 
 *** Orbit prediction
 
-Add on-rails planet stuff
-	Give 'em gravity
+NOPE:
+	Add on-rails planet stuff
+		Give 'em gravity
 
 Use orbit prediction on the ship, where it will be in x time
 

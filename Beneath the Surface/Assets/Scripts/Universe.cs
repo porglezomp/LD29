@@ -11,7 +11,6 @@ public class Universe : MonoBehaviour {
 	public List<FallingBody> dynamics;
 	public List<FixedBody> statics;
 	public List<PlanetBody> planets;
-	public List<RailsBody> rails;
 
 	// Make the static variable world
 	void Awake () {
@@ -38,8 +37,6 @@ public class Universe : MonoBehaviour {
 	public void _AddBody (Body b) {
 		if (b is FallingBody) {
 			dynamics.Add(b as FallingBody);
-		} else if (b is RailsBody) {
-			rails.Add(b as RailsBody);
 		} else if (b is PlanetBody) {
 			planets.Add(b as PlanetBody);
 		} else if (b is FixedBody) {
@@ -51,8 +48,6 @@ public class Universe : MonoBehaviour {
 	public void _RemoveBody (Body b) {
 		if (b is FallingBody) {
 			dynamics.Remove(b as FallingBody);
-		} else if (b is RailsBody) {
-			rails.Remove(b as RailsBody);
 		} else if (b is PlanetBody) {
 			planets.Remove(b as PlanetBody);
 		} else if (b is FixedBody) {
