@@ -1,0 +1,16 @@
+P = 2π * √(a^3/mu)
+n = 2π/P
+
+thus n = √(a^3/mu)
+
+M = n * t
+M = E - e * sin E (ugh, soliving for E, no explicit solution)
+Use Newton's method!
+E_n+1 = E_n − (M−E+esinE) / (−1+ecos(E))
+some good # of times
+
+θ:
+(1 - e) • tan^2(θ/2) = (1 + e) * tan^2(E/2)
+
+θ = 2πn- 2i * tanh^(-1)((tan(E/2))/sqrt((e-1)/(e+1)))
+r = [a(1 - e^2)] / (1 + ecosθ)
