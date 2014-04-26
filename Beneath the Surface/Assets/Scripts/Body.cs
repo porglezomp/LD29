@@ -4,6 +4,11 @@ using System.Collections;
 public class FutureBody {
 	public Vector2d position;
 	public Vector2d velocity;
+
+	public FutureBody(Body b) {
+		position = b.position;
+		velocity = b.velocity;
+	}
 }
 
 public class Body : MonoBehaviour {
@@ -11,19 +16,24 @@ public class Body : MonoBehaviour {
 	public Vector2d position;
 	public Vector2d velocity;
 	public double mass = 1;
-
-	void FixedUpdate () {
-		position += velocity * Time.fixedDeltaTime;
-	}
+	public LineRenderer lr;
+	public Material lineRendererMaterial;
 
 	// Use this for initialization
 	protected void Start () {
+		lr = gameObject.AddComponent(typeof(LineRenderer)) as LineRenderer;
+		lr.SetColors(Color.grey, Color.black);
+		lr.SetWidth(.1f, .05f);
+		lr.material = lineRendererMaterial;
 		position = new Vector2d(transform.position.x * Universe.scale, transform.position.y * Universe.scale);
 		Universe.AddBody(this);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void PhysicsStep () {
+		position += velocity * Time.fixedDeltaTime;
+	}
+
+	public void OnDestroy () {
+		Universe.RemoveBody(this);
 	}
 }

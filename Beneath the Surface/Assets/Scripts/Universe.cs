@@ -7,6 +7,7 @@ public class Universe : MonoBehaviour {
 	public static double scale = 1E3;
 	public static Universe world;
 	public static double G = 6.67E-10;
+	bool hasBeenInitialized = false;
 
 	public List<FallingBody> dynamics;
 	public List<FixedBody> statics;
@@ -18,17 +19,41 @@ public class Universe : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-
 	}
 
-	// Update is called once per frame
-	void FixedUpdate () {
-		foreach (FixedBody f in statics) {
-			f.Attract(dynamics);
-			f.Attract(planets);
+//	// Update is called once per frame
+//	void FixedUpdate () {
+//		foreach (FixedBody f in statics) {
+//			f.Attract(dynamics);
+//			f.Attract(planets);
+//		}
+//		foreach (PlanetBody p in planets) {
+//			p.Attract(dynamics);
+//		}
+//	}
+
+	void FixedUpdate() {
+		if (!hasBeenInitialized) {
+			for (int i = 0; i < Oracle.FutureSteps; i++) {
+				Oracle.Step();
+			}
+			Oracle.ReturnToPresent();
+			hasBeenInitialized = true;
 		}
+		Oracle.CalculateFuture();
+		Oracle.Dynamics();
+		foreach (PlanetBody p in planets) {
+			p.future.RemoveAt(0);
+		}
+		Oracle.ReturnToPresent();
 		foreach (PlanetBody p in planets) {
 			p.Attract(dynamics);
+		}
+		foreach (FixedBody f in statics) {
+			f.Attract(dynamics);
+		}
+		foreach (FallingBody f in dynamics) {
+			f.PhysicsStep();
 		}
 	}
 

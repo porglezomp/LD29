@@ -1,12 +1,12 @@
 TODO:
 
-*** Orbit prediction
+√ Orbit prediction
 
 NOPE:
 	Add on-rails planet stuff
 		Give 'em gravity
 
-Use orbit prediction on the ship, where it will be in x time
+√ Use orbit prediction on the ship, where it will be in x time
 
 Add enemy ships (Falling Body)
 	Use orbit prediction to stay safe (hard?)
@@ -16,4 +16,8 @@ Add shooting
 
 Add some effects (enemies spurting from the sun, etc)
 
+Menu
+
 Sounds
+
+Story (Menu?)

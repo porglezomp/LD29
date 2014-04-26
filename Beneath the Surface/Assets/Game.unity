@@ -104,7 +104,6 @@ MonoBehaviour:
   dynamics: []
   statics: []
   planets: []
-  rails: []
 --- !u!4 &64254975
 Transform:
   m_ObjectHideFlags: 0
@@ -293,6 +292,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .905501008
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: df604d27d59f842268b1a09cb6f051e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0de80d3b97f6143bcb142c195b255fba, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df604d27d59f842268b1a09cb6f051e2, type: 3}
   m_RootGameObject: {fileID: 1145956676}
@@ -309,6 +312,7 @@ GameObject:
   - 33: {fileID: 593171025}
   - 23: {fileID: 593171024}
   - 114: {fileID: 593171023}
+  - 120: {fileID: 593171027}
   m_Layer: 0
   m_Name: circle
   m_TagString: Untagged
@@ -329,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 1999999968613498900
   initialVel: {x: 0, y: 500}
+  lr: {fileID: 593171027}
 --- !u!23 &593171024
 Renderer:
   m_ObjectHideFlags: 0
@@ -370,6 +375,40 @@ Transform:
   m_LocalScale: {x: .291691095, y: .291691095, z: .291691095}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!120 &593171027
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 593171022}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 08fcebecfb6a64e24aa7afae1a1ff7b4, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: .200000003
+    endWidth: .100000001
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 0
+  m_UseWorldSpace: 1
 --- !u!1 &827912172
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 9999999980506447900
   initialVel: {x: -450, y: 0}
+  lr: {fileID: 0}
 --- !u!23 &827912174
 Renderer:
   m_ObjectHideFlags: 0
@@ -501,6 +541,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e8278e91561d24e6398bdaee2248a2b3, type: 2}
+    - target: {fileID: 100000, guid: 506ba11fe7824493ba74ac46a4620fa6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 506ba11fe7824493ba74ac46a4620fa6, type: 3}
   m_RootGameObject: {fileID: 451689995}
@@ -688,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 999999984306749440
   initialVel: {x: 0, y: 900}
+  lr: {fileID: 0}
 --- !u!23 &1203237414
 Renderer:
   m_ObjectHideFlags: 0
