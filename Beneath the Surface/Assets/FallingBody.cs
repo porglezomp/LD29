@@ -4,14 +4,13 @@ using System.Collections;
 public class FallingBody : Body {
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
 		base.Start();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		position += velocity * Time.deltaTime;
-		Debug.Log(velocity.x);
+		position += velocity * Time.fixedDeltaTime;
 	}
 
 	void Update () {

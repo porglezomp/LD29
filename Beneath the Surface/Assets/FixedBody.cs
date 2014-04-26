@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FixedBody : Body {
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
 		base.Start();
 	}
 	

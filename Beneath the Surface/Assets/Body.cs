@@ -10,6 +10,7 @@ public class Body : MonoBehaviour {
 	// Use this for initialization
 	protected void Start () {
 		position = new Vector2d(transform.position.x * Universe.scale, transform.position.y * Universe.scale);
+		Universe.AddBody(this);
 	}
 	
 	// Update is called once per frame
