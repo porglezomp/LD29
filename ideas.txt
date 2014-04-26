@@ -6,7 +6,13 @@ A puzzle game in two layers
 
 Submarines
 
+GOING WITH THIS?:
 Space game and just have beneath the surface in the graphics
+	Or maybe make it actually fit?
+
+	Surface of the sun
+	Mining on planets/asteroids
+	Beneath the surface of space
 
 Subway game
 
