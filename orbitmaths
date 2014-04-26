@@ -1,7 +1,8 @@
 P = 2π * √(a^3/mu)
 n = 2π/P
 
-thus n = √(a^3/mu)
+thus n = 1/√(a^3/mu): n = √(mu/a^3)
+
 
 M = n * t
 M = E - e * sin E (ugh, soliving for E, no explicit solution)

@@ -14,6 +14,6 @@ public class FallingBody : Body {
 	}
 
 	void Update () {
-		transform.position = new Vector2((float) position.x / Universe.scale, (float) position.y / Universe.scale);
+		transform.position = new Vector2((float) (position.x / Universe.scale), (float) (position.y / Universe.scale));
 	}
 }

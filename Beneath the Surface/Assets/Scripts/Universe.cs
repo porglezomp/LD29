@@ -4,11 +4,14 @@ using System.Collections.Generic;
 
 public class Universe : MonoBehaviour {
 
-	public static float scale = 1000;
+	public static double scale = 1E3;
 	public static Universe world;
+	public static double G = 6.67E-10;
 
 	public List<FallingBody> dynamics;
 	public List<FixedBody> statics;
+	public List<PlanetBody> planets;
+	public List<RailsBody> rails;
 
 	// Make the static variable world
 	void Awake () {
@@ -23,6 +26,10 @@ public class Universe : MonoBehaviour {
 	void FixedUpdate () {
 		foreach (FixedBody f in statics) {
 			f.Attract(dynamics);
+			f.Attract(planets);
+		}
+		foreach (PlanetBody p in planets) {
+			p.Attract(dynamics);
 		}
 	}
 
@@ -32,7 +39,9 @@ public class Universe : MonoBehaviour {
 		if (b is FallingBody) {
 			dynamics.Add(b as FallingBody);
 		} else if (b is RailsBody) {
-			// Later
+			rails.Add(b as RailsBody);
+		} else if (b is PlanetBody) {
+			planets.Add(b as PlanetBody);
 		} else if (b is FixedBody) {
 			statics.Add(b as FixedBody);
 		}
@@ -40,11 +49,13 @@ public class Universe : MonoBehaviour {
 
 	public static void RemoveBody (Body b) { world._RemoveBody(b); }
 	public void _RemoveBody (Body b) {
-		if (b.GetType() == typeof(FallingBody)) {
+		if (b is FallingBody) {
 			dynamics.Remove(b as FallingBody);
-		} else if (b.GetType() == typeof(RailsBody)) {
-			// Later
-		} else if (b.GetType() == typeof(FixedBody)) {
+		} else if (b is RailsBody) {
+			rails.Remove(b as RailsBody);
+		} else if (b is PlanetBody) {
+			planets.Remove(b as PlanetBody);
+		} else if (b is FixedBody) {
 			statics.Remove(b as FixedBody);
 		}
 	}
