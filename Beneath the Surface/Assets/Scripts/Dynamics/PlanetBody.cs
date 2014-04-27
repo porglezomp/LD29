@@ -46,5 +46,5 @@ public class PlanetBody : Body {
 			Vector2d vecDelta = (position - dyn.position).normalized / (delta * delta) * Universe.G * mass * Time.fixedDeltaTime;
 			dyn.velocity += vecDelta;
 		}
-	}x
+	}
 }

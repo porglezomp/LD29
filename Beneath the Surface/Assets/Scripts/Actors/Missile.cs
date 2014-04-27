@@ -26,7 +26,7 @@ public class Missile : FallingBody {
 		if (time < 0) Detonate();
 	}
 
-	void OnCollision2D() {
+	void OnTriggerEnter2D() {
 		Detonate();
 	}
 
