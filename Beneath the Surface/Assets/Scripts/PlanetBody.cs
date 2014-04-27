@@ -15,9 +15,7 @@ public class PlanetBody : Body {
 	}
 
 	public void StoreFuture() {
-		Debug.Log ("Storing future!");
 		future.Add(new FutureBody(this));
-		Debug.Log (future.Count);
 	}
 
 	public void RestoreFuture(int num = -1) {
@@ -48,7 +46,5 @@ public class PlanetBody : Body {
 			Vector2d vecDelta = (position - dyn.position).normalized / (delta * delta) * Universe.G * mass * Time.fixedDeltaTime;
 			dyn.velocity += vecDelta;
 		}
-	}
-
-//	public void Bod
+	}x
 }

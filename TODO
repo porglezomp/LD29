@@ -9,7 +9,8 @@ NOPE:
 √ Use orbit prediction on the ship, where it will be in x time
 
 Add enemy ships (Falling Body)
-	Use orbit prediction to stay safe (HARD. AAAAAAAAAAAAAAAAAHHH)
+	NOPE: Use orbit prediction to stay safe (HARD. AAAAAAAAAAAAAAAAAHHH)
+		√ using vectors for smartness
 	Try to do hunting on the player's ship
 
 Add shooting

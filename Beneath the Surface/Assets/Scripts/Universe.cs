@@ -22,17 +22,6 @@ public class Universe : MonoBehaviour {
 	void Start () {
 	}
 
-//	// Update is called once per frame
-//	void FixedUpdate () {
-//		foreach (FixedBody f in statics) {
-//			f.Attract(dynamics);
-//			f.Attract(planets);
-//		}
-//		foreach (PlanetBody p in planets) {
-//			p.Attract(dynamics);
-//		}
-//	}
-
 	void FixedUpdate() {
 		if (!hasBeenInitialized) {
 			for (int i = 0; i < Oracle.FutureSteps; i++) {
@@ -42,11 +31,12 @@ public class Universe : MonoBehaviour {
 			hasBeenInitialized = true;
 		}
 		Oracle.CalculateFuture();
-		Oracle.Dynamics();
 		foreach (PlanetBody p in planets) {
-			p.future.RemoveAt(0);
+				p.future.RemoveAt(0);
+			Debug.Log(p.future.Count);
 		}
 		Oracle.ReturnToPresent();
+
 		foreach (PlanetBody p in planets) {
 			p.Attract(dynamics);
 		}
