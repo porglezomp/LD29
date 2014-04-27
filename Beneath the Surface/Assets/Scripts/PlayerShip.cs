@@ -16,10 +16,10 @@ public class PlayerShip : FallingBody {
 		lr.SetColors(new Color(.1f, .1f, .1f, 1f), Color.black);
 		transform.position = new Vector2((float) (position.x / Universe.scale), (float) (position.y / Universe.scale));
 		if (Input.GetAxis("Horizontal") != 0) {
-			transform.Rotate(new Vector3(0, 0, 1), Input.GetAxis("Horizontal") * Time.deltaTime * RotSpeed);
+			transform.Rotate(new Vector3(0, 0, -1), Input.GetAxis("Horizontal") * Time.deltaTime * RotSpeed, Space.World);
 		}
 		if (Input.GetAxis("Vertical") > 0) {
-			velocity += new Vector2d(transform.up.x, transform.up.y) * Time.deltaTime * EngineForce;
+			velocity += new Vector2d(transform.forward.x, transform.forward.y) * Time.deltaTime * EngineForce;
 		}
 		DrawFuture();
 	}

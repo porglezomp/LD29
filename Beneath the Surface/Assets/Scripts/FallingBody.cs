@@ -32,10 +32,12 @@ public class FallingBody : Body {
 
 	public void RestoreFuture(int num = -1) {
 		if (num > -1 && num < future.Length) {
-			position = future[num].position;
-			velocity = future[num].velocity;
+			if (future[num] != null) {
+				position = future[num].position;
+				velocity = future[num].velocity;
+			}
 		} else {
-			if (future.Length > 0) {
+			if (future.Length > 0 && future[future.Length - 1] != null) {
 				position = future[future.Length - 1].position;
 				velocity = future[future.Length - 1].velocity;
 			}

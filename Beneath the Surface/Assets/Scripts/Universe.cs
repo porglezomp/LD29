@@ -10,6 +10,7 @@ public class Universe : MonoBehaviour {
 	bool hasBeenInitialized = false;
 
 	public List<FallingBody> dynamics;
+	public List<FallingBody> characters;
 	public List<FixedBody> statics;
 	public List<PlanetBody> planets;
 
@@ -62,6 +63,9 @@ public class Universe : MonoBehaviour {
 	public void _AddBody (Body b) {
 		if (b is FallingBody) {
 			dynamics.Add(b as FallingBody);
+			if (b is Enemy || b is PlayerShip) {
+				characters.Add(b as FallingBody);
+			}
 		} else if (b is PlanetBody) {
 			planets.Add(b as PlanetBody);
 		} else if (b is FixedBody) {
@@ -73,10 +77,18 @@ public class Universe : MonoBehaviour {
 	public void _RemoveBody (Body b) {
 		if (b is FallingBody) {
 			dynamics.Remove(b as FallingBody);
+			if (b is Enemy || b is PlayerShip) {
+				characters.Remove(b as FallingBody);
+			}
 		} else if (b is PlanetBody) {
 			planets.Remove(b as PlanetBody);
 		} else if (b is FixedBody) {
 			statics.Remove(b as FixedBody);
 		}
+	}
+
+	public static Vector2 WorldToView(Vector2d v) {
+		v /= scale;
+		return new Vector2((float) v.x, (float) v.y);
 	}
 }

@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class Oracle {
-	public static int FutureSteps = 500;
+	public static int FutureSteps = 10;
 
 	public static void DynamicStep(int time) {
 		foreach (PlanetBody p in Universe.world.planets) {
 			p.RestoreFuture(time);
 		}
 		foreach (FixedBody f in Universe.world.statics) {
-			f.Attract(Universe.world.dynamics);
+			f.Attract(Universe.world.characters);
 		}
 		foreach (PlanetBody p in Universe.world.planets) {
-			p.Attract(Universe.world.dynamics);
+			p.Attract(Universe.world.characters);
 		}
-		foreach (FallingBody f in Universe.world.dynamics) {
+		foreach (FallingBody f in Universe.world.characters) {
 			f.PhysicsStep();
 			f.StoreFuture(time);
 		}
