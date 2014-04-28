@@ -10,8 +10,11 @@ GameObject:
   - 4: {fileID: 400000}
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
+  - 114: {fileID: 11400000}
+  - 58: {fileID: 5800000}
+  - 111: {fileID: 11100000}
   m_Layer: 0
-  m_Name: Explosion2
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,10 +27,47 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 12.3227177, y: -4.23012829, z: .427090645}
+  m_LocalPosition: {x: 11.7637291, y: -7.95976734, z: -12.8088388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!58 &5800000
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Radius: .800000012
+  m_Center: {x: 0, y: 0}
+--- !u!111 &11100000
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6385c730991bb449d8b3f6dc891af004, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6385c730991bb449d8b3f6dc891af004, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707de2c47e9ea4dbe86c83a499bf4275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -205,7 +245,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: .300000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -322,7 +362,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 4
+    cnt0: 1
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -407,45 +447,45 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 0
         key1:
           serializedVersion: 2
-          rgba: 4291621887
+          rgba: 4294967295
         key2:
           serializedVersion: 2
-          rgba: 4281103847
+          rgba: 4294967295
         key3:
           serializedVersion: 2
-          rgba: 331362
+          rgba: 13431807
         key4:
           serializedVersion: 2
-          rgba: 3637
+          rgba: 2913767
         key5:
           serializedVersion: 2
-          rgba: 0
+          rgba: 331362
         key6:
           serializedVersion: 2
-          rgba: 0
+          rgba: 3637
         key7:
           serializedVersion: 2
           rgba: 0
-        ctime0: 9638
-        ctime1: 32768
-        ctime2: 50886
-        ctime3: 60716
-        ctime4: 65535
-        ctime5: 0
-        ctime6: 0
+        ctime0: 1542
+        ctime1: 3662
+        ctime2: 19082
+        ctime3: 36430
+        ctime4: 50886
+        ctime5: 60716
+        ctime6: 65535
         ctime7: 0
         atime0: 964
-        atime1: 4048
-        atime2: 13493
+        atime1: 2506
+        atime2: 21588
         atime3: 65535
-        atime4: 0
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
-        m_NumColorKeys: 5
+        m_NumColorKeys: 7
         m_NumAlphaKeys: 4
       minGradient:
         key0:
@@ -744,8 +784,8 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
-    enabled: 0
-    multiplier: 1
+    enabled: 1
+    multiplier: .100000001
   ClampVelocityModule:
     enabled: 0
     x:

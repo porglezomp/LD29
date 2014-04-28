@@ -26,6 +26,9 @@ public class Body : MonoBehaviour {
 		lr.SetWidth(.1f, .05f);
 		lr.material = lineRendererMaterial;
 		position = new Vector2d(transform.position.x * Universe.scale, transform.position.y * Universe.scale);
+		if (double.IsNaN(position.x) || double.IsNaN(position.y)) {
+			position = new Vector2d(0, 0);
+		}
 		Universe.AddBody(this);
 	}
 	

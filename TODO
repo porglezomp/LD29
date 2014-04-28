@@ -11,7 +11,7 @@ NOPE:
 Add enemy ships (Falling Body)
 	NOPE: Use orbit prediction to stay safe (HARD. AAAAAAAAAAAAAAAAAHHH)
 		√ using vectors for smartness
-	Try to do hunting on the player's ship
+	Try to do hunting on the player's ship NOPE
 
 Add shooting
 	(Part way done)

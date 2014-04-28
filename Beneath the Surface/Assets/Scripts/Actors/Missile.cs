@@ -17,8 +17,17 @@ public class Missile : FallingBody {
 	// Update is called once per frame
 	void Update () {
 		while (fuel > 0) {
-			Vector2 vector = transform.forward * Time.deltaTime * missileForce;
-			velocity += new Vector2d(vector.x, vector.y);
+			Vector2 vector = transform.forward;
+			foreach (FallingBody b in Universe.world.characters) {
+				if (b is Enemy) {
+					Vector2d deltad = b.position - position;
+					Vector2 delta = new Vector2((float) deltad.x, (float) deltad.y).normalized;
+					if (Vector2.Dot (delta, transform.forward) > .9) {
+						vector += delta * .5f;
+					}
+				}
+			}
+			velocity += new Vector2d(vector.x, vector.y).normalized * Time.deltaTime * missileForce;
 			fuel -= Time.deltaTime;
 		}
 		time -= Time.deltaTime;
@@ -26,8 +35,10 @@ public class Missile : FallingBody {
 		if (time < 0) Detonate();
 	}
 
-	void OnTriggerEnter2D() {
-		Detonate();
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag != "Player") {
+			Detonate();
+		}
 	}
 
 	void Detonate() {

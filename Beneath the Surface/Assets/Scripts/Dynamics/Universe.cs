@@ -22,6 +22,10 @@ public class Universe : MonoBehaviour {
 	void Start () {
 	}
 
+	void OnLevelWasLoaded () {
+		GameManager.ResetGame();
+	}
+
 	void FixedUpdate() {
 		if (!hasBeenInitialized) {
 			for (int i = 0; i < Oracle.FutureSteps; i++) {
@@ -33,7 +37,6 @@ public class Universe : MonoBehaviour {
 		Oracle.CalculateFuture();
 		foreach (PlanetBody p in planets) {
 				p.future.RemoveAt(0);
-			Debug.Log(p.future.Count);
 		}
 		Oracle.ReturnToPresent();
 
