@@ -6,6 +6,7 @@ public class PlayerShip : FallingBody {
 	public float RotSpeed = 100;
 	public float EngineForce = 100;
 	public GameObject Explosion;
+	public Renderer fire;
 
 	// Use this for initialization
 	new void Start () {
@@ -21,11 +22,14 @@ public class PlayerShip : FallingBody {
 		}
 		if (Input.GetAxis("Vertical") > 0) {
 			velocity += new Vector2d(transform.forward.x, transform.forward.y) * Time.deltaTime * EngineForce;
+			fire.enabled = true;
+		} else {
+			fire.enabled = false;
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		if (other.gameObject.tag != "Missile") {
+		if (other.gameObject.tag != "Missile" && other.gameObject.tag != "Border") {
 			GameObject.Instantiate(Explosion, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}

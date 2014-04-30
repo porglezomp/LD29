@@ -18,16 +18,21 @@ public class Missile : FallingBody {
 	void Update () {
 		while (fuel > 0) {
 			Vector2 vector = transform.forward;
+			float distance = 1000;
+			Vector2 target = Vector2.zero;
 			foreach (FallingBody b in Universe.world.characters) {
 				if (b is Enemy) {
-					Vector2d deltad = b.position - position;
-					Vector2 delta = new Vector2((float) deltad.x, (float) deltad.y).normalized;
-					if (Vector2.Dot (delta, transform.forward) > .9) {
-						vector += delta * .5f;
+					float delta = Vector2.Distance(transform.position, b.transform.position);
+					if (delta < 1) Detonate();
+					if (delta < distance) {
+						target = b.transform.position;
 					}
 				}
 			}
-			velocity += new Vector2d(vector.x, vector.y).normalized * Time.deltaTime * missileForce;
+			if (distance < 1000) {
+				vector += (target - (Vector2) transform.position) * .1f;
+			}
+			velocity += (new Vector2d(vector.x, vector.y).normalized)* Time.deltaTime * missileForce;
 			fuel -= Time.deltaTime;
 		}
 		time -= Time.deltaTime;
@@ -36,7 +41,7 @@ public class Missile : FallingBody {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.tag != "Player") {
+		if (other.gameObject.tag != "Player" && other.gameObject.tag != "Border") {
 			Detonate();
 		}
 	}

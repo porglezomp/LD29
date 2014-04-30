@@ -1,12 +1,20 @@
 fileFormatVersion: 2
-guid: 6463953ba549f4b89b5dcab95dd9cf5f
+guid: ac58a396c738a46dba26a1113532ff63
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Cube
+    100002: //RootNode
+    100004: Plane
+    400000: Cube
+    400002: //RootNode
+    400004: Plane
+    2300000: Cube
+    2300002: Plane
+    2300004: //RootNode
+    3300000: Cube
+    3300002: Plane
+    3300004: //RootNode
     4300000: Plane
     7400000: Default Take
     9500000: //RootNode
@@ -46,7 +54,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

@@ -21,6 +21,8 @@ public class Enemy : FallingBody {
 		EnemySpawner.spawner.enemies.Add(this);
 		target = GameObject.FindObjectOfType(typeof(PlayerShip)) as Body;
 		gameObject.collider2D.enabled = false;
+		Transform sun = Universe.world.statics[0].transform;
+		Instantiate(SunParticles, transform.position, Quaternion.LookRotation(Vector3.forward, transform.position - sun.position));
 	}
 
 	void Thrust(Vector2d v, double weight = 1) {
@@ -154,7 +156,7 @@ public class Enemy : FallingBody {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.gameObject.tag == "Sun") {
 			Phoenix(other.transform);
-		} else {
+		} else if (other.gameObject.tag != "Border"){
 			Crash(other.gameObject);
 		}
 	}

@@ -24,6 +24,6 @@ public class GameGUI : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
-		Application.LoadLevel(0);
+		Application.LoadLevel(1);
 	}
 }
